@@ -1,4 +1,4 @@
-package com.example.uisupsearch;
+/**package com.example.uisupsearch;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -49,3 +49,4 @@ public class UserLocalData {
         ueditor.commit();
     }
 }
+ **/

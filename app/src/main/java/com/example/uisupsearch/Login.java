@@ -1,3 +1,4 @@
+/**
 package com.example.uisupsearch;
 
 import android.content.Intent;
@@ -9,8 +10,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class Login extends AppCompatActivity implements View.OnClickListener {
+public class Login extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.ac);
 
+}
+    /**
     Button LoginButton;
     EditText enterNetID, enterPassword;
     TextView linkRegister;
@@ -82,3 +89,4 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         startActivity(new Intent(this, Home.class));
     }
 }
+ **/

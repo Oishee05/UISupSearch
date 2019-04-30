@@ -1,4 +1,4 @@
-package com.example.uisupsearch;
+/**package com.example.uisupsearch;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,3 +11,4 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
     }
 }
+ **/
