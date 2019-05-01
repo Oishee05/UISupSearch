@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SearchProducts"></activity>
         <activity android:name=".AddProducts" />
         <activity android:name=".UserProducts" />
         <activity android:name=".UserHome" />
@@ -24,7 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UserProducts" />
+        <activity android:name=".UserProducts"></activity>
     </application>
 
 </manifest>

@@ -13,11 +13,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 
 public class UserProducts extends AppCompatActivity {
@@ -26,21 +26,23 @@ public class UserProducts extends AppCompatActivity {
 
     ListView userList;
 
-    ArrayList<String> ListItem;
+    ArrayList<String> theList;
     ArrayAdapter adapter;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_products);
+
+        userList = (ListView) findViewById(R.id.userslist);
         databaseHelper = new ProductDBHelper(this);
 
-        ListItem = new ArrayList<>();
-        userList = findViewById(R.id.userslist);
+        theList = new ArrayList<>();
+
         userList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 String text = userList.getItemAtPosition(position).toString();
-                Toast.makeText(UserProducts.this, "" + text, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "" + text, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -50,17 +52,20 @@ public class UserProducts extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "No products :( YET", Toast.LENGTH_SHORT).show();
         } else {
             while (cursor.moveToNext()) {
-                ListItem.add(cursor.getString(0));
-                //Toast.makeText(getApplicationContext(), "Product:" + cursor.getString(0), Toast.LENGTH_SHORT).show();
+                theList.add(cursor.getString(0));
+                Toast.makeText(getApplicationContext(), cursor.getString(0), Toast.LENGTH_SHORT).show();
+                theList.add(cursor.getString(0));
 
             }
-            adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, ListItem);
+            adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, theList);
             userList.setAdapter(adapter);
         }
     }
+}
 
 
-    @Override
+
+    /**@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
@@ -89,8 +94,8 @@ public class UserProducts extends AppCompatActivity {
         });
         return super.onCreateOptionsMenu(menu);
     }
+    **/
 
-}
 
     /**@Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

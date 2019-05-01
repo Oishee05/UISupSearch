@@ -10,7 +10,7 @@ public class UserHome extends AppCompatActivity {
 
     Button AddProducts;
     Button UserProducts;
-    Button Search;
+    Button logout;
 
 
     @Override
@@ -34,14 +34,28 @@ public class UserHome extends AppCompatActivity {
                 startActivity(iS);
             }
         });
-        Search = (Button) findViewById(R.id.Search);
+
+        logout = (Button) findViewById(R.id.logoutButton);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case R.id.logoutButton:
+                        finish();
+                        Intent in = new Intent(UserHome.this, Register.class);
+                        startActivity(in);
+                }
+            }
+        });
+    }
+}
+
+        /**Search = (Button) findViewById(R.id.Search);
         Search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent is = new Intent(UserHome.this, SearchProducts.class);
                 startActivity(is);
             }
-        });
+        }); **/
 
-    }
-}

@@ -1,6 +1,7 @@
 package com.example.uisupsearch;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +22,7 @@ public class Register extends AppCompatActivity  {
         setContentView(R.layout.activity_register);
 
         db = new DatabaseHelper(this);
+
         enterNetID = (EditText) findViewById(R.id.enterNetID);
         enterPassword = (EditText) findViewById(R.id.enterPassword);
         checkPassword = (EditText) findViewById(R.id.checkPassword);

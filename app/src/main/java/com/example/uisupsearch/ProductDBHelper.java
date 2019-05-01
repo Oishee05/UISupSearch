@@ -10,10 +10,8 @@ import java.util.NavigableMap;
 
 public class ProductDBHelper extends SQLiteOpenHelper {
 
-    //public static final String DATABASE_NAME = "UserProducts.db";
-    public static final String TABLE_NAME = "product";
-    //public static final String COL1 = "product_id";
-    public static final String COL2 = "productInfo";
+    //public static final String TABLE_NAME = "product";
+    //public static final String COL2 = "productInfo";
 
     //public static final String UNIVERSAL_PRODUCTS = "Universal.db";
 
@@ -26,7 +24,7 @@ public class ProductDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         //db.execSQL("Create table product(product_id integer primary key autoincrement, product text)");
-        db.execSQL("Create table product(info text primary key)");
+        db.execSQL("Create table product(productInfo text primary key)");
     }
 
     @Override
@@ -34,12 +32,13 @@ public class ProductDBHelper extends SQLiteOpenHelper {
         db.execSQL("drop table if exists product");
         onCreate(db);
     }
-    public boolean addData (String product) {
+
+    public boolean addData(String p) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("info", product);
-        //contentValues.put("product", "productInfo");
-        //contentValues.put(UNIVERSAL_PRODUCTS, "productInfo");
+        contentValues.put("productInfo", p);
+        //contentValues.put("price", price);
+        //contentValues.put("contact", contact);
 
         long ins = db.insert("product", null, contentValues);
         if (ins == -1) {
@@ -48,17 +47,20 @@ public class ProductDBHelper extends SQLiteOpenHelper {
             return true;
         }
     }
-//data does not insert if -1
-    public Cursor getList() {
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor data = db.rawQuery("Select * from product", null);
 
+    //data does not insert if -1
+    public Cursor getList() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor data = db.rawQuery("Select * from product", null);
         return data;
     }
+}
+    /**
     public Cursor searchProduct(String text) {
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "Select * from" + TABLE_NAME + "where" + COL2 + "Like'%"+text+"%'";
         Cursor cursor = db.rawQuery(query, null);
         return cursor;
     }
-}
+     **/
+

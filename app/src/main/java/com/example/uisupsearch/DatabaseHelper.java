@@ -49,7 +49,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Boolean check2(String netID, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("Select * from user where netID = ? and password = ?", new String[] {netID, password});
-        if (cursor.getCount() > 0) {
+        if (cursor.getCount() != 1) {
             return false;
         } else {
             return true;
