@@ -19,6 +19,7 @@
         android:layout_margin="20dp"
         android:layout_below="@+id/addProduct"
         android:id="@+id/AddButton"
+        android:onClick="onClick"
         android:text="Add" />
 
     <Button
@@ -27,6 +28,7 @@
         android:layout_toRightOf="@+id/AddButton"
         android:layout_below="@+id/addProduct"
         android:text="View Your Products"
+        android:onClick="onClick"
         android:layout_margin="20dp"
         android:id="@+id/ViewButton"/>
 

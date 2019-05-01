@@ -8,19 +8,38 @@ import android.widget.Button;
 
 public class UserHome extends AppCompatActivity {
 
-    Button YourProducts;
+    Button AddProducts;
+    Button UserProducts;
+    Button Search;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home);
 
-        YourProducts = (Button) findViewById(R.id.YourProducts);
-        YourProducts.setOnClickListener(new View.OnClickListener() {
+        AddProducts = (Button) findViewById(R.id.YourProducts);
+        AddProducts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(UserHome.this, AddProducts.class);
                 startActivity(i);
+            }
+        });
+        UserProducts = (Button) findViewById(R.id.UserProducts);
+        UserProducts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent iS = new Intent(UserHome.this, UserProducts.class);
+                startActivity(iS);
+            }
+        });
+        Search = (Button) findViewById(R.id.Search);
+        Search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent is = new Intent(UserHome.this, SearchProducts.class);
+                startActivity(is);
             }
         });
 

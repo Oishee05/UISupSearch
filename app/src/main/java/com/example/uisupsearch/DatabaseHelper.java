@@ -23,20 +23,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
     //inserting in database
-    public boolean insert(String netID, String password) {
+    public boolean insertD(String netID, String password) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("netID", netID);
         contentValues.put("password", password);
         long ins = db.insert("user", null, contentValues);
-        if (ins == 1) {
+        if (ins == -1) {
             return false;
         } else {
             return true;
         }
     }
     //checking if netID exists in database.
-    public Boolean check (String netID) {
+    public Boolean check(String netID) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("Select * from user where netID = ?", new String[] {netID});
         if (cursor.getCount() > 0) {

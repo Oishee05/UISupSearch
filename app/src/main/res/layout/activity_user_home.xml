@@ -9,7 +9,15 @@
 
     <Button
         android:id="@+id/YourProducts"
-        android:text="Your Products"
+        android:text="Add Products"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/UserProducts"
+        android:text="View Products"
+        android:layout_width="match_parent"
+        android:onClick="onClick"
+        android:layout_height="wrap_content" />
+
+
 </LinearLayout>

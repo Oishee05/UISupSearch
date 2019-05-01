@@ -28,7 +28,7 @@ public class UserLogin extends AppCompatActivity {
                 String netID = enterNetID.getText().toString();
                 String pwd = enterPassword.getText().toString();
                 Boolean c = db.check2(netID, pwd);
-                if (c == true) {
+                if (c == true && !(netID.equals("") || pwd.equals(""))) {
                     Toast.makeText(getApplicationContext(), "Successful!", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(UserLogin.this, UserHome.class);
                     startActivity(i);

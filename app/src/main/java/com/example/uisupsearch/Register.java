@@ -43,18 +43,18 @@ public class Register extends AppCompatActivity  {
                     Toast.makeText(getApplicationContext(), "Fields are empty", Toast.LENGTH_SHORT).show();
                 } else {
                     if (pwd.equals(chkpwd)) {
-                        Boolean check = db.check(net);
-                        if (check == true) {
-                            Boolean insert = db.insert(net, pwd);
+                        Boolean check3 = db.check(net);
+                        if (check3 == true) {
+                            Boolean insert = db.insertD(net, pwd);
                             if (insert == true) {
                                 Toast.makeText(getApplicationContext(), "Success!", Toast.LENGTH_SHORT).show();
-                                Intent i = new Intent(Register.this, UserLogin.class);
+                                Intent i = new Intent(Register.this, UserHome.class);
                                 startActivity(i);
                             }
                         } else {
                             Toast.makeText(getApplicationContext(), "NetID already exists", Toast.LENGTH_SHORT).show();
                         }
-                    } if (!pwd.equals(chkpwd)) {
+                    } else if (!pwd.equals(chkpwd)) {
                         Toast.makeText(getApplicationContext(), "Password does not match :(",Toast.LENGTH_SHORT).show();
                     }
                 }
